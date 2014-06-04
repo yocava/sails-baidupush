@@ -1,0 +1,5 @@
+--require test/common
+--reporter spec
+--recursive
+--timeout 2s
+--slow 75

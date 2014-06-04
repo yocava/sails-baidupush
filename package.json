@@ -1,0 +1,51 @@
+{
+  "name": "sails-baidupush",
+  "version": "0.10.0",
+  "description": "baidupush adapter for Sails / Waterline",
+  "scripts": {
+    "test": "node test/integration/runner -R spec -b"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git://github.com/yocava/sails-baidupush.git"
+  },
+  "keywords": [
+    "baidu",
+    "push",
+    "apns",
+    "gcm",
+    "adapter",
+    "sails",
+    "waterline",
+    "sails.js",
+    "plugin"
+  ],
+  "author": "yocava",
+  "license": "MIT",
+  "readmeFilename": "README.md",
+  "dependencies": {
+    "baidu-push": "^0.3.0",
+    "lodash": "^2.4.1"
+  },
+  "devDependencies": {
+    "async": "^0.9.0",
+    "captains-log": "~0.11.0",
+    "chai": "^1.9.1",
+    "chai-as-promised": "^4.1.1",
+    "grunt": "^0.4.5",
+    "grunt-mocha-test": "^0.11.0",
+    "mocha": "*",
+    "nock": "^0.32.3",
+    "q": "^1.0.1",
+    "waterline": "^0.10.0-rc13",
+    "waterline-adapter-tests": "~0.10.0"
+  },
+  "waterlineAdapter": {
+    "type": "baidupush",
+    "interfaces": [
+      "semantic",
+      "queryable"
+    ],
+    "waterlineVersion": "~0.10.0"
+  }
+}
