@@ -38,6 +38,22 @@ describe('Message', function () {
       Message.create(payload).toPromise().should.be.fulfilled.and.notify(done);
     });
 
+    it.skip('should be able to push one message to a particular user by given a `user_id`', function (done) {
+      var messages = { title: 'hello', description: 'Hello, Utopia!' };
+      var payload  = { push_type: 1, user_id: FIXTURES.USER_ID, message_type: 1, messages: messages, msg_keys: Date.now().toString() };
+      Message.create(payload).toPromise().should.be.fulfilled.and.notify(done);
+    });
+
+    it.skip('should be able to push multiple messages to a particular user by given a `user_id`', function (done) {
+      var message1 = { title: 'hello 1', description: 'Hello, Utopia!' };
+      var message2 = { title: 'hello 2', description: 'Hello, Utopia!' };
+      var payloads = [
+        { push_type: 1, user_id: FIXTURES.USER_ID, message_type: 1, messages: message1, msg_keys: Date.now().toString() },
+        { push_type: 1, user_id: FIXTURES.USER_ID, message_type: 1, messages: message2, msg_keys: Date.now().toString() }
+      ];
+      Message.create(payloads).toPromise().should.be.fulfilled.and.notify(done);
+    });
+
     it('should NOT be able to push a message to a particular user by given a `channel_id`', function (done) {
       var messages = [{ title: 'hello', description: 'Hello, Utopia!' }];
       var payload  = { push_type: 1, channel_id: FIXTURES.CHANNEL_ID, message_type: 1, messages: messages, msg_keys: [Date.now().toString()] };
